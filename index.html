@@ -735,17 +735,26 @@
   var colors = { restaurant:'#c7548c', cafe:'#8f7fc9', bar:'#c79a3a', architecture:'#3f7ea6' };
 
   var places = [
-    {name:"Ristorante Pizzeria Da Mario e Nicola", cat:"restaurant", lat:48.267741, lng:17.030919, note:"Talianska kuchyňa a pravá neapolská pizza."},
-    {name:"Tma v Hrnku", cat:"cafe", lat:48.274223, lng:17.031813, note:"Pražiareň a kávový bar priamo na Hlavnej ulici."},
-    {name:"U Holuba", cat:"bar", lat:48.271387, lng:17.031899, note:"Obľúbená pivnica s vlastným pivom v centre."},
-    {name:"Kaštieľsky park", cat:"architecture", lat:48.275370, lng:17.035320, note:"Historický park, miesto našej svadobnej párty."},
+    {name:"Makovice", cat:"restaurant", lat:48.2775547, lng:17.0399509, note:"Svadobný catering pre náš deň zabezpečuje práve Makovice.", url:"https://maps.app.goo.gl/fHDagXe7T7rrkM7g7"},
+    {name:"FATCAT", cat:"restaurant", lat:48.2703184, lng:17.032643, note:"Alternatíva pre milovníkov sushi.", url:"https://maps.app.goo.gl/LWbNVVqAFCFzrxeH6"},
+    {name:"U Holuba", cat:"restaurant", lat:48.2713873, lng:17.0318996, note:"Skvelá česká kuchyňa.", url:"https://maps.app.goo.gl/SdgrMY7iTYk3pDyk9"},
+    {name:"Ristorante Pizzeria Da Mario e Nicola", cat:"restaurant", lat:48.2677414, lng:17.0309192, note:"Špičková neapolská pizza.", url:"https://maps.app.goo.gl/dFRe7gHhjV6HFRie9"},
+    {name:"SHUGETSU tsukemen&ramen", cat:"restaurant", lat:48.2008094, lng:17.0144634, note:"Jedinečné ramen, aké nikde inde nenájdete.", url:"https://maps.app.goo.gl/NowdY33zqcscxKDVA"},
+    {name:"Pivovar Stupavar", cat:"bar", lat:48.2750137, lng:17.0217671, note:"Dodali pivo na našu svadbu.", url:"https://maps.app.goo.gl/seNh6k5nye4mmqhX8"},
+    {name:"Komunal Klub", cat:"bar", lat:48.2724749, lng:17.0319676, note:"Ideálne na rýchle pivko oproti hotelu.", url:"https://maps.app.goo.gl/2T2nHUSCxLubcqVG7"},
+    {name:"Požgay & Hrustič – limbašské vinárstvo", cat:"bar", lat:48.290016, lng:17.219210, note:"Dodali víno na našu svadbu.", url:"https://www.pozgayhrustic.sk"},
+    {name:"Tma v hrnku", cat:"cafe", lat:48.2742231, lng:17.0318133, note:"Praženie kávy priamo v Stupave.", url:"https://maps.app.goo.gl/kszDbKCZ6HPvoEqTA"},
+    {name:"Krematórium a urnový háj", cat:"architecture", lat:48.2092935, lng:17.0436309, note:"Pôsobivá funkcionalistická architektúra.", url:"https://maps.app.goo.gl/hgtaXnSFDgGEpPDH6"},
+    {name:"Bufet ŽUFET", cat:"architecture", lat:48.1774448, lng:17.074157, note:"Zaujímavosť s vlastným príbehom, oplatí sa vidieť.", url:"https://maps.app.goo.gl/eDjBgH9Jm1df2xDQ6"},
+    {name:"Devínska Kobyla", cat:"architecture", lat:48.1888888, lng:16.9930554, note:"Vrch s výhľadom na Dunaj a okolitú krajinu.", url:"https://maps.app.goo.gl/GCTikV4dFsYYmipN9"},
+    {name:"Slovenský národný archív", cat:"architecture", lat:48.1598612, lng:17.082228, note:"Pozoruhodná budova archívu.", url:"https://maps.app.goo.gl/dVf6zoAmd6RuxvXx8"}
   ];
 
   function initMap(){
     var mapEl = document.getElementById('poi-map');
     if(!mapEl || typeof L === 'undefined') return;
 
-    var map = L.map('poi-map', { scrollWheelZoom:false }).setView([48.2735, 17.0350], 13);
+    var map = L.map('poi-map', { scrollWheelZoom:false }).setView([48.2735, 17.0350], 12);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 18,
@@ -763,11 +772,15 @@
       marker.bindPopup(
         '<span class="poi-popup-title">' + p.name + '</span>' +
         '<span class="poi-popup-cat">' + p.cat + '</span>' +
-        p.note
+        p.note +
+        (p.url ? '<br><a class="poi-popup-link" href="' + p.url + '" target="_blank" rel="noopener">Otvoriť →</a>' : '')
       );
       marker.poiCat = p.cat;
       return marker;
     });
+
+    var group = L.featureGroup(markers);
+    map.fitBounds(group.getBounds().pad(0.15));
 
     var buttons = document.querySelectorAll('.map-filter');
     buttons.forEach(function(btn){
