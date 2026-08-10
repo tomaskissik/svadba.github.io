@@ -380,6 +380,35 @@
   }
   .faq-item p a:hover{color:var(--ink);}
 
+  .qr-grid{
+    display:flex;
+    flex-wrap:wrap;
+    gap:1.6rem;
+    margin-top:1.2rem;
+  }
+  .qr-card{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:.6rem;
+  }
+  .qr-card img{
+    width:150px;
+    height:150px;
+    border:1.5px solid var(--ink);
+    border-radius:2px;
+    background:#fff;
+    padding:6px;
+  }
+  .qr-label{
+    font-family:'Space Mono', monospace;
+    font-size:.7rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    text-align:center;
+    max-width:150px;
+  }
+
   /* ---------- EXPLORE MAP ---------- */
   .explore-intro{
     text-align:center;
@@ -585,10 +614,10 @@
     <div class="card">
       <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="var(--ink)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 44 L8 10 L40 10 L40 44"/><path d="M8 20 L40 20"/><path d="M16 15 L16 15.5"/><path d="M24 15 L24 15.5"/><path d="M32 15 L32 15.5"/><path d="M16 27 L16 27.5"/><path d="M24 27 L24 27.5"/><path d="M32 27 L32 27.5"/><path d="M16 34 L16 34.5"/><path d="M32 34 L32 34.5"/><path d="M20 44 L20 34 L28 34 L28 44"/></svg>
       <h3>Hotel</h3>
-      <p>Hotel Stupava<br>Ubytovanie pre hostí</p>
+      <p>Hotel Eminent Stupava<br>Ubytovanie pre hostí</p>
       <span class="time">príchod od 14:00</span><br>
-      <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Hotel%20Stupava" target="_blank" rel="noopener">Zobraziť na mape →</a><br>
-      <a class="map-link" href="https://www.example.com" target="_blank" rel="noopener">Webstránka hotela →</a>
+      <a class="map-link" href="https://maps.app.goo.gl/9mCguA3t28p6cPo77" target="_blank" rel="noopener">Zobraziť na mape →</a><br>
+      <a class="map-link" href="https://www.hotel-eminent.sk/ubytovanie/" target="_blank" rel="noopener">Webstránka hotela →</a>
     </div>
     <div class="card">
       <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="var(--ink)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M24 4 L24 12"/><path d="M18 8 L30 8"/><path d="M10 44 L10 22 L24 12 L38 22 L38 44 Z"/><path d="M20 44 L20 30 L28 30 L28 44"/><circle cx="24" cy="20" r="2.4"/></svg>
@@ -675,7 +704,7 @@
     </details>
     <details class="faq-item">
       <summary>Aký je dress-code/téma svadby?</summary>
-      <p>Florálny, pestrý a pastelový &mdash; viac nájdete v sekcii Dresscode nižšie. Smelé kvetinové vzory sú vítané.</p>
+      <p>Florálny, pestrý a pastelový &mdash; viac nájdete v sekcii Dresscode vyššie. Smelé kvetinové vzory sú vítané.</p>
     </details>
     <details class="faq-item">
       <summary>Prečo práve svadba v skleníku?</summary>
@@ -698,6 +727,16 @@
     <details class="faq-item">
       <summary>Môžem priniesť pre novomanželov dar/kvety?</summary>
       <p>Vašu prítomnosť vnímame ako najväčší dar. Ak by ste napriek tomu chceli niečo prispieť, tu sú QR kódy:</p>
+      <div class="qr-grid">
+        <div class="qr-card">
+          <img src="TCZ.jpg" alt="QR platba - Tomášov český účet">
+          <span class="qr-label">Tomášov český účet</span>
+        </div>
+        <div class="qr-card">
+          <img src="TSK.jpg" alt="QR platba - Tomášov slovenský účet">
+          <span class="qr-label">Tomášov slovenský účet</span>
+        </div>
+      </div>
     </details>
     <details class="faq-item">
       <summary>Čo budem jesť?</summary>
@@ -705,7 +744,7 @@
     </details>
     <details class="faq-item">
       <summary>Čo budem piť?</summary>
-      <p>Pri bufete nájdete samoobslužný bar so selekciou limonád, nealko aj alkoholických nápojov &mdash; ráčte sa obslúžiť sami. Načapujte si skvelé pivo 11° od <a href="https://www.stupavar.sk" target="_blank" rel="noopener">pivovaru Stupavar</a>, víno od Limbašského vinárstva Požgay &amp; Hrustič a skvelú čiernu kávu zabezpečí kaviareň <a href="https://www.tmavhrnku.sk" target="_blank" rel="noopener">Tma v hrnku</a>.</p>
+      <p>Pri bufete nájdete samoobslužný bar so selekciou limonád, nealko aj alkoholických nápojov &mdash; ráčte sa obslúžiť sami. Načapujte si skvelé pivo tečks 11° od <a href="https://www.stupavar.sk" target="_blank" rel="noopener">pivovaru Stupavar</a>, víno od Limbašského vinárstva <a href="https://www.pozgayhrustic.sk" target="_blank" rel="noopener">Požgay &amp; Hrustič</a> a skvelú čiernu kávu zabezpečí kaviareň <a href="https://www.tmavhrnku.sk" target="_blank" rel="noopener">Tma v hrnku</a>.</p>
     </details>
     <details class="faq-item">
       <summary>Môžem priniesť kvety/koláč/tortu?</summary>
@@ -742,6 +781,7 @@
 
   <div class="map-filters" role="group" aria-label="Filtrovať miesta podľa kategórie">
     <button class="map-filter active" data-filter="all">Všetko</button>
+    <button class="map-filter" data-filter="wedding">Svadba</button>
     <button class="map-filter" data-filter="restaurant">Reštaurácie</button>
     <button class="map-filter" data-filter="cafe">Kaviarne</button>
     <button class="map-filter" data-filter="bar">Bary</button>
@@ -751,6 +791,7 @@
   <div id="poi-map" aria-label="Mapa zaujímavých miest v Stupave"></div>
 
   <div class="map-legend">
+    <span><i style="background:#2f9e5c"></i>Svadba</span>
     <span><i style="background:#c7548c"></i>Reštaurácie</span>
     <span><i style="background:#8f7fc9"></i>Kaviarne</span>
     <span><i style="background:#c79a3a"></i>Bary</span>
@@ -769,9 +810,12 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script>
 (function(){
-  var colors = { restaurant:'#c7548c', cafe:'#8f7fc9', bar:'#c79a3a', architecture:'#3f7ea6' };
+  var colors = { wedding:'#2f9e5c', restaurant:'#c7548c', cafe:'#8f7fc9', bar:'#c79a3a', architecture:'#3f7ea6' };
 
   var places = [
+    {name:"Hotel Eminent Stupava", cat:"wedding", lat:48.2723473, lng:17.0322914, note:"Ubytovanie pre hostí, príchod od 14:00.", url:"https://www.hotel-eminent.sk"},
+    {name:"Kostol sv. Štefana", cat:"wedding", lat:48.273132, lng:17.0332358, note:"Miesto svadobného obradu, 15:30.", url:"https://www.google.com/maps/search/?api=1&query=Kostol%20sv.%20%C5%A0tefana%20Stupava"},
+    {name:"Skleník – Kaštieľsky park, Malý park", cat:"wedding", lat:48.2756646, lng:17.0330292, note:"Párty pokračuje tu od 17:00.", url:"https://maps.app.goo.gl/UzLjBv7eEonBjASD7"},
     {name:"Makovice", cat:"restaurant", lat:48.2775547, lng:17.0399509, note:"Svadobný catering pre náš deň zabezpečuje práve Makovice.", url:"https://maps.app.goo.gl/fHDagXe7T7rrkM7g7"},
     {name:"FATCAT", cat:"restaurant", lat:48.2703184, lng:17.032643, note:"Alternatíva pre milovníkov sushi.", url:"https://maps.app.goo.gl/LWbNVVqAFCFzrxeH6"},
     {name:"U Holuba", cat:"restaurant", lat:48.2713873, lng:17.0318996, note:"Skvelá česká kuchyňa.", url:"https://maps.app.goo.gl/SdgrMY7iTYk3pDyk9"},
